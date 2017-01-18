@@ -1,0 +1,43 @@
+#Load the R project
+
+library(readr)
+library(ggplot2)
+library(tm)
+library(SnowballC)
+library(wordcloud)
+# If packages Not available, please download using:  install.packages('package_name') ::for example install.packages('tm')
+### 1. Sentiment ###
+sentimentData<-data.frame(SentimentClass=Sentiment$X1,TweetCount=Sentiment$X2)
+sentimentData $ SentimentClass <- factor(sentimentData $ SentimentClass, levels = sentimentData $ SentimentClass)
+ggplot(sentimentData, aes(x= SentimentClass, y= TweetCount)) + geom_bar(stat="identity")
+
+ggplot(sentimentData, aes(x= SentimentClass, y= TweetCount)) +geom_bar(stat="identity",fill="blue", colour="black")
+
+### 2.Positive: Top 10 keywords and WordCloud ###
+#wordcloud(positives, max.words = 25, random.order = FALSE) #Black and white word cloud
+
+	#Colored Word Cloud
+head(dPositive, 10)  # Prints List of top 10 Positive Features
+set.seed(1234)
+wordcloud(words = dPositive$word, freq = dPositive$freq, min.freq = 1,max.words=50, random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+
+### 3.Negative : Top 10 keywords and WordCloud ###
+#wordcloud(negatives, max.words = 25, random.order = FALSE)#Black and white word cloud
+	#Colored Word Cloud
+head(dNegative, 10)  # Prints List of top 10 Negative Features
+set.seed(1234)
+wordcloud(words = dNegative$word, freq = dNegative$freq, min.freq = 1,max.words=50, random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+
+
+### 4. Timelines###
+ggplot(posMonthsTest, aes(x=Month, y=Count)) +geom_bar(stat="identity",fill="blue", colour="black")
+ggplot(negMonthsTest, aes(x=Month, y=Count)) +geom_bar(stat="identity",fill="blue", colour="black")
+ggplot(neutralMonthsTest, aes(x=Month, y=Count)) +geom_bar(stat="identity",fill="blue", colour="black")
+
+### 5. Neutral : Top 10 keywords and WordCloud ###
+#wordcloud(neutrals, max.words = 25, random.order = FALSE)#Black and white word cloud
+	#Colored Word Cloud
+head(dNeutral, 10)  # Prints List of top 10 Neutral Features
+set.seed(1234)
+wordcloud(words = dNeutral$word, freq = dNeutral$freq, min.freq = 1,max.words=50, random.order=FALSE, rot.per=0.35, colors=brewer.pal(8, "Dark2"))
+

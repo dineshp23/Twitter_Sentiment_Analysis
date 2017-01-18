@@ -1,0 +1,2 @@
+1. TrainNaiveBayes.py and TrainMaxEnt.py create trained models saved in the pickle format.Training data:utf_8full_training_dataset
+2. ClassifyNaiveBayes.py and ClassifyMaxEnt.py use these trained models to classify the test file utf_8training_neatfile_2.csv
