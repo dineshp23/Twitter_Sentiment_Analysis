@@ -52,10 +52,10 @@ for line in f:
    stopwords.update(line)
 
 # Initialize keys
-consumerKey = "1fxk8eFCT6n43AfuKYlSVGPVW";
-consumerSecret ="mUgvAHDgwe8GSHZl3w5u3id1KqZox9zy5wMez78jDePYXN76S2";
-accessToken = "230035182-BMxXpLFdb6kHqhynzJDTBQL5jJBbrvGMbhrHnWvj";
-accessTokenSecret = "VX3b4Ycgmn19rqFf0eDLZuw1oi5FKelSVpjlDhiRExhas";
+consumerKey = "";
+consumerSecret ="";
+accessToken = "";
+accessTokenSecret = "";
 
 # Verify Keys
 consumer = oauth.Consumer(key=consumerKey, secret=consumerSecret)
